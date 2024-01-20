@@ -28,8 +28,8 @@ def op [fn
         [_ _ _ $l $r] => [$l $r],
     }
 
-    print [$captured_in $first $second $left $right]
-    print $l_and_r
+    #print [$captured_in $first $second $left $right]
+    #print $l_and_r
 
     match $l_and_r {
         [null, null] => $fn,
