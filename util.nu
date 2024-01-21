@@ -24,7 +24,23 @@ export def trace [] {
     do { print $in; $in }
 }
 
-export def compose [f g] {
+export def identity [
+    it?
+    --closure (-c) # Returns a closure instead.
+    --closure_param (-p)
+    ] {
+    if $closure {
+        { $in }
+    } else if $closure_param {
+        { |it| $it }
+    } else if (exists? $it) {
+        $it
+    } else {
+        $in
+    }
+}
+
+export def 'fn compose' [f g] {
     {|...x| do $f (do $g ...$x) }
 }
 
